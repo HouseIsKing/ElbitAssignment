@@ -1,0 +1,19 @@
+﻿  question01.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.30.30705\include\numeric(34,1): warning C4267: '=': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\amitz\source\repos\home_assignment_cpp\question01.cpp(35): message : see reference to function template instantiation '_Ty std::accumulate<std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::vector<uint64_t,std::allocator<uint64_t>>>>>,int,count_total_elements::<lambda_9c4caf4defb97e782d167ccdd2c10df4>>(const _InIt,const _InIt,_Ty,_Fn)' being compiled
+          with
+          [
+              _Ty=int,
+              _InIt=std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::vector<uint64_t,std::allocator<uint64_t>>>>>,
+              _Fn=count_total_elements::<lambda_9c4caf4defb97e782d167ccdd2c10df4>
+          ]
+  Generating code
+  1 of 192 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ElbitAssigment1.vcxproj -> C:\Users\amitz\source\repos\home_assignment_cpp\ElbitAssigment\x64\Release\ElbitAssigment1.exe
