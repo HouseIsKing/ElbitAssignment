@@ -11,9 +11,11 @@
 
 // Do not change the main function body - it should compile and run without any modifications after completion of all tasks  
 
-
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <vector>
+#include <cmath>
+#include <string>
 
 struct Point {
 
@@ -32,6 +34,12 @@ struct Point {
 
 };
 
+std::ostream& operator << (std::ostream& os, const Point& point)
+{
+	os << point.x << "/" << point.y;
+	return os;
+}
+
 struct Size {
 
 	Size() :
@@ -46,32 +54,60 @@ struct Size {
 	int height;
 };
 
+class Shape
+{
+public:
+	const Point& center() const
+	{
+		return centerPoint;
+	}
+	const std::string& name() const
+	{
+		return m_name;
+	}
+	virtual const double area() const = 0;
+protected:
+	std::string m_name = "Shape";
+	Point centerPoint;
+};
 
-class Rectangle {
+class Circle : public Shape
+{
+public:
+	Circle(const Point& center_arg, const double& radius_arg) : radius(radius_arg)
+	{
+		m_name = "Circle";
+		centerPoint = center_arg;
+	}
+	const double area() const
+	{
+		return M_PI * radius * radius;
+	}
+protected:
+	double radius;
+};
+
+
+class Rectangle : public Shape {
 
 public:
 
-	Rectangle(const Point& center, const Size& size) :
-		m_center(center),
+	Rectangle(const Point& center_arg, const Size& size) :
 		m_size(size)
 	{
-	}
-
-	const Point& center() {
-		return m_center;
+		centerPoint = center_arg;
+		m_name = "Rectangle";
 	}
 
 	const Size& size() {
 		return m_size;
 	}
 
-	 size_t area() {
-		return m_size.width *(size_t)m_size.height;
+	 const double area() const {
+		return m_size.width * m_size.height;
 	}
 
 protected:
-
-	Point m_center;
 	Size  m_size;
 };
 
